@@ -13,20 +13,44 @@
         }
 
         body {
-            background: #dbdbe8;
+            background: #16213e;
+            /* O fundo do frame agora é o fundo do body */
             font-family: 'Segoe UI', sans-serif;
             display: flex;
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
-            padding: 20px;
+            /* padding: 20px; <--- REMOVA OU COMENTE ESTA LINHA */
+            /* O padding agora será aplicado diretamente no conteúdo */
+            color: #e0e0e0;
+            /* A cor do texto do frame agora é a do body */
+            flex-direction: column;
+            /* Para alinhar o conteúdo verticalmente */
+            /* Remova também a largura e bordas que eram do phone-frame */
+            width: 100%;
+            box-sizing: border-box;
+            /* Garante que padding não adicione largura extra */
+        }
+
+        .main-app-content {
+            padding: 24px 16px 20px;
+            /* O padding que era do phone-frame */
+            max-width: 500px;
+            /* Um max-width para não esticar demais em telas muito grandes */
+            width: 100%;
+            /* Ocupa 100% da largura do pai (body) */
+            margin: auto;
+            /* Centraliza o bloco na tela */
+            box-sizing: border-box;
+            /* Garante que o padding não adicione largura extra */
         }
 
         .phone-frame {
             background: #16213e;
-            border-radius: 36px;
+            /* border-radius: 36px; <--- REMOVIDA */
             border: 2px solid #d3d9e0;
-            width: 360px;
+            max-width: 95%;
+            width: 500px;
             padding: 24px 16px 20px;
             box-shadow: 0 0 40px rgba(0, 200, 255, 0.15);
         }
@@ -257,9 +281,10 @@
 </head>
 
 <body>
-    <div class="phone-frame">
 
-        <!-- Header -->
+
+    <div class="main-app-content">
+        <!-- Conteúdo do seu app: Header, Tabs, Total Inicial, Grid, Status, Buttons -->
         <div class="header">
             <button class="nav-btn" id="prevDay">&#8592;</button>
             <h1>Controle Diario</h1>
@@ -295,11 +320,12 @@
         <!-- Buttons -->
         <div class="btn-row">
             <button class="btn-setdrv" onclick="setDriver()">SetDrv</button>
-            <button class="btn-modif1" onclick="saveData()">Salvar</button>
-            <button class="btn-modif2" onclick="loadData()">Recarregar</button>
+            <button class="btn-modif1" onclick="saveDataToSheet()">Salvar</button>
+            <button class="btn-modif2" onclick="handleReloadButtonClick()">Recarregar</button>
         </div>
-
     </div>
+
+
 
     <script>
 
