@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fcfcfc;
+            font-family: -apple-system, sans-serif;
+        }
+
+        .grid-container {
+            display: grid;
+            /* Definimos 12 colunas internas para facilitar a divisão de 2 e 3 botões */
+            grid-template-columns: repeat(12, 1fr); 
+            grid-template-rows: repeat(10, 1fr); 
+            gap: 10px;
+            width: 90vw;
+            height: 95vh;
+            max-width: 400px;
+        }
+
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1C1C1E;
+            color: #0A84FF;
+            border-radius: 12px;
+            font-weight: bold;
+            border: 1px solid #38383A;
+            text-decoration: none;
+        }
+
+        /* BOTÕES DE CIMA: 2 botões ocupando 6 colunas cada (total 12) */
+        .top-btn {
+            grid-column: span 6;
+            grid-row: 1; /* Primeira linha */
+            background-color: #ff0a33;
+            color: white;
+        }
+
+        /* BOTÕES DE BAIXO: 3 botões ocupando 4 colunas cada (total 12) */
+        .bottom-btn {
+            grid-column: span 4;
+            grid-row: 10; /* Décima linha */
+        }
+
+        /* Preenchimento visual para as linhas do meio (opcional) */
+        .spacer {
+            grid-column: span 12;
+            border: 1px dashed #333;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #444;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+        <!-- Topo: 2 botões -->
+        <div class="btn top-btn">A</div>
+        <div class="btn top-btn">B</div>
+
+        <!-- Meio: Representando as linhas vazias (2 a 9) -->
+        <div class="spacer" style="grid-row: span 8;">Espaço Central (Linhas 2 a 9)</div>
+
+        <!-- Base: 3 botões -->
+        <div class="btn bottom-btn">1</div>
+        <div class="btn bottom-btn">2</div>
+        <div class="btn bottom-btn">3</div>
+    </div>
+
+</body>
+</html>
